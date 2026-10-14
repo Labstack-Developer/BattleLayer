@@ -1,0 +1,61 @@
+name: Publish Windows release
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['package.json', '.github/workflows/release.yml', 'docs/release-notes.md']
+permissions:
+  contents: read
+concurrency:
+  group: publish-windows-release
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npm run dist:win
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - name: Create SHA256 checksum
+        shell: pwsh
+        run: |
+          Get-ChildItem dist/*.exe | ForEach-Object {
+            $hash = (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower()
+            "$hash  $($_.Name)" | Add-Content dist/SHA256SUMS.txt -Encoding ascii
+          }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-windows
+          path: |
+            dist/*.exe
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
+  publish:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-windows
+          path: release-assets
+      - name: Publish versioned prerelease without overwriting existing releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          TAG="v$VERSION"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG already exists; increment package version for a new release."
+            exit 0
+          fi
+          gh release create "$TAG" release-assets/* --target "$GITHUB_SHA" --title "BattleLayer $TAG — preview" --notes-file docs/release-notes.md --prerelease --latest=false

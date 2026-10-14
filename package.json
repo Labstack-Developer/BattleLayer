@@ -28,5 +28,13 @@
       "target": "portable"
     },
     "artifactName": "BattleLayer-${version}-portable.${ext}"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Labstack-Developer/BattleLayer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Labstack-Developer/BattleLayer/issues"
   }
 }

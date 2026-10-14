@@ -30,7 +30,7 @@ Desktop transparency requires the EXE. Opening `index.html` in a browser cannot 
 
 Right-click the point where you want an effect to start. Choose a circular slice, then an option from its submenu. The centre button goes **Back** or closes the wheel.
 
-- **Animated spells:** Fireball, Lightning and Arcane portal.
+- **Animated spells:** Fireball, Spirit Guardians, Hypnotic Pattern, Lightning Bolt, Burning Hands, Thunderwave, Shatter, Web, Wall of Fire, Cone of Cold and Arcane portal. Choose **More spells →** for the second page.
 - **Templates:** circle, cone, line and square.
 - **Environment:** manually drawn Water, Lava and Fog regions.
 - **Weather:** Rain, Snow, Wind or Clear.
@@ -38,9 +38,37 @@ Right-click the point where you want an effect to start. Choose a circular slice
 
 ![Right-clicking the Action Wheel and placing a Fireball effect](docs/media/action-wheel-spells.gif)
 
-For a **cone, line or lightning**, move the cursor to aim the live preview and click to confirm. **Escape** cancels. Other spell effects appear at the original right-click point.
+For a **cone, line, Lightning Bolt, Burning Hands, Wall of Fire or Cone of Cold**, move the cursor to aim the live preview and click to confirm. **Escape** cancels. Other spell effects appear at the original right-click point.
 
-Click an effect to select it. **Scroll** changes its size, **Shift + scroll** rotates it, and **Alt + drag** moves it. **Delete** removes the selected object. Fireball and Lightning repeat by default. Untick **Repeat spell animations** to play them once and remove them; portals stay until removed.
+Click an effect to select it. **Scroll** changes its size, **Shift + scroll** rotates it, and **Alt + drag** moves it. **Delete** removes the selected object. Fireball and Lightning repeat by default. Untick **Repeat spell animations** to play burst spells once and remove them; persistent spells stay until removed.
+
+### Spell library
+
+| Spell | Default visual area | Animation |
+| --- | --- | --- |
+| Fireball | 20 ft radius | Expanding fiery blast, sparks and smoke |
+| Spirit Guardians | 15 ft radius | Orbiting spectral guardians and motes |
+| Hypnotic Pattern | 30 ft square | Slowly rotating multicoloured patterns |
+| Lightning Bolt | 100 ft long, 5 ft wide | Branching bolts and travelling sparks |
+| Burning Hands | 15 ft cone | Streaming flame and embers |
+| Thunderwave | 15 ft square | Expanding square shockwaves |
+| Shatter | 10 ft radius | Shock ring and outward glass-like shards |
+| Web | 20 ft square | Woven strands and subtle glints |
+| Wall of Fire | 60 ft long, 1 ft wide | Aimed line of moving flames |
+| Cone of Cold | 60 ft cone | Frost clouds and ice crystals |
+
+These are top-down visual presets, not automatic spell-rule enforcement. Square spells are centred at the clicked point. Spirit Guardians, Hypnotic Pattern, Web, Wall of Fire and Portal persist until removed. Burst spells repeat when **Repeat spell animations** is enabled, or finish and disappear when it is off. No imported animation assets or new runtime libraries are required.
+
+### Custom templates
+
+Right-click → **Templates**, then choose a shape. The controls panel opens a template editor:
+
+- **Circle:** enter the **radius** in feet.
+- **Square:** enter the **full side length**—enter **100** for a 100 ft × 100 ft square.
+- **Cone:** enter the length in feet and opening angle in degrees.
+- **Line:** enter length and width in feet.
+
+Click **Place template**. Circles/squares appear at your original right-click point; cones/lines follow the cursor until you click to confirm direction. To resize exactly later, select the template in Layers, click **Edit selected template**, enter new dimensions and **Apply to selected**. Dimensions use the calibrated feet-per-square setting and survive scene save/open. Accepted size is 1–2000 ft, line width 1–1000 ft and cone opening 5–170°. Large templates may extend beyond the current view; zoom out to see them.
 
 ## 2. Measure movement and range
 
@@ -121,7 +149,11 @@ Alignment currently assumes a square grid aligned with the map axes. It does not
 
 Project a grid square onto the board and adjust scale/zoom until it measures the physical size you want (typically **1 inch = 5 feet**). Two-point alignment calibrates a map's printed grid; a physical ruler calibrates the actual projected size. Keep the projector position, resolution and view fixed afterwards. Moving the overlay after calibration moves its alignment too.
 
-## Animation quality\n\n**Balanced** detail and **30 FPS** are the laptop defaults. Choose Low to reduce particles or High for more detail; 60 FPS is available for smoother motion. Multiple spells share a particle budget, and offscreen spells are not drawn. Actual performance depends on the laptop model, display resolution and other active effects.\n\n## Save your session
+## Animation quality
+
+**Balanced** detail and **30 FPS** are the laptop defaults. Choose Low to reduce particles or High for more detail; 60 FPS is available for smoother motion. Multiple spells share a particle budget, and offscreen spells are not drawn. Actual performance depends on the laptop model, display resolution and other active effects.
+
+## Save your session
 
 **Save scene** downloads a JSON file containing the imported map, effects, measurements, grid settings and view. **Open scene** restores it. An image open in Photos is external and is not embedded in the scene—reopen and position it separately.
 

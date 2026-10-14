@@ -1,13 +1,11 @@
-# BattleLayer 0.3.0 — spell effects preview
+# BattleLayer 0.4.0 — expanded spells and exact templates
 
-Download BattleLayer-0.3.0-portable.exe from Assets. No Node.js installation is required. SHA256SUMS.txt provides the checksum.
+Download BattleLayer-0.4.0-portable.exe under Assets. No Node.js installation is needed; SHA256SUMS.txt provides the checksum.
 
-- Fireball: charge-up, expanding blast ring, glowing sparks and fading smoke.
-- Lightning: branching multi-layer bolts, flicker and travelling particles.
-- Portal: rotating rings, rune marks and spiralling particles.
-- Low / Balanced / High detail; 30 / 60 FPS. Balanced at 30 FPS is the laptop default.
-- A shared particle budget limits detail as more effects run, and offscreen spells are skipped.
-- Repeat spell animations retains the existing looping behaviour. Untick it for one-shot Fireball/Lightning; portals remain until removed.
-- Existing scenes load with laptop-friendly defaults; animation phases restart on scene load and undo.
+## Animated spells
+Fireball, Spirit Guardians, Hypnotic Pattern, Lightning Bolt, Burning Hands, Thunderwave, Shatter, Web, Wall of Fire and Cone of Cold are available across two Action Wheel pages, alongside Arcane portal. Effects use the existing cached Canvas2D renderer and quality controls. Directional spells have an aiming preview. Persistent area spells remain until deleted; burst spells respect Repeat spell animations.
 
-Uses the existing Canvas2D renderer with cached glow sprites, no additional runtime dependencies or dedicated GPU requirement. Exact EliteBook performance depends on model, resolution and effect count. The executable remains unsigned and native Windows/projector verification is required.
+## Custom templates
+Create circles by radius, squares by full side, cones by length/opening angle, and lines by length/width. Enter dimensions in feet; a 100 ft square is now directly configurable. Select a template and use Edit selected template → Apply to selected for exact revisions. Scene save/open preserves dimensions.
+
+These are visual tabletop aids, not automated spell rules. Windows executables remain unsigned; native Windows/EliteBook frame-rate testing is outstanding.

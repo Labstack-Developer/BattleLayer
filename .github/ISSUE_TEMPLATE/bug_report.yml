@@ -1,0 +1,26 @@
+name: Bug report
+description: Report a reproducible problem
+body:
+  - type: input
+    id: version
+    attributes:
+      label: BattleLayer and Windows versions
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Display mode
+      options:
+        - Transparent desktop overlay
+        - Digital battlemap
+        - Effects-only projection
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps, expected result and actual result
+      description: Attach a screenshot or recording with personal information removed.
+    validations:
+      required: true

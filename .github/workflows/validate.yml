@@ -1,0 +1,33 @@
+name: Validate
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check desktop-ui.js
+          node --check desktop/main.cjs
+          node --check desktop/preload.cjs
+      - name: Check README images and package version
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, re
+          root=pathlib.Path('.')
+          for target in re.findall(r'!\[[^\]]*\]\(([^)]+)\)', (root/'README.md').read_text()):
+              if '://' not in target:
+                  assert (root/target).is_file(), target
+          assert json.loads((root/'package.json').read_text())['version'] == json.loads((root/'package-lock.json').read_text())['version']
+          PY

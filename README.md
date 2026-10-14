@@ -6,14 +6,13 @@ BattleLayer is built for physical miniatures on a TV or projected whiteboard. Us
 
 ## Download and start on Windows
 
-1. Open [Build Windows desktop in GitHub Actions](https://github.com/Labstack-Developer/Battle-layer-d-d/actions/workflows/windows-desktop.yml).
-2. Choose the latest successful build of `main` (green tick).
-3. On its **Summary** page, click the **Artifacts** count or scroll to the artifacts list.
-4. Download **BattleLayer-Windows**, extract the ZIP, and launch the portable **EXE** inside. No Node.js installation is needed for this build. You must be signed in with repository access to download the artifact.
-5. Open your map in **Photos**, arrange it on the target display, and start BattleLayer. It starts as a transparent overlay.
-6. Use **Desktop overlay → Projector / monitor** to choose a screen, then align the grid.
+1. Open [Releases](https://github.com/Labstack-Developer/BattleLayer/releases).
+2. Choose the newest Windows preview and download the **portable EXE** under **Assets**.
+3. Save and run it. No Node.js installation is needed.
+4. Open your map in **Photos**, arrange it on the target display, and start BattleLayer.
+5. Use **Desktop overlay → Projector / monitor** to choose a screen, then align the grid.
 
-The Windows build is unsigned. A successful build confirms packaging; it does not guarantee every projector or desktop setup has been tested.
+Releases are early previews and executables are unsigned. Each release includes SHA256 checksums. If no release is available yet, a successful [Windows build](https://github.com/Labstack-Developer/BattleLayer/actions/workflows/windows-desktop.yml) also provides a ZIP under its run's Artifacts section.
 
 > **Ctrl + Shift + Space** switches between drawing in BattleLayer and clicking through to the app underneath. In click-through mode the controls hide, while the grid and effects remain visible. Press the shortcut again to return to drawing. **Ctrl + Shift + Escape** quits; the tray menu also offers recovery and quit controls.
 
@@ -185,3 +184,7 @@ Environmental animations are procedural overlays; they do not distort the origin
 ## Demo credits
 
 The GIFs are excerpts from Sam's supplied BattleLayer screen recording. Map artwork visible in the recording belongs to its respective creators and is shown as demonstration content, not as bundled reusable battlemaps. See [clip details](docs/media/README.md) for timestamps and editing notes.
+
+## Project and contribution information
+
+See [Contributing](CONTRIBUTING.md), [Security](SECURITY.md), and [usage rights](LICENSE). The code is publicly viewable once the repository is public; an open-source licence has not been granted. Documentation map artwork remains owned by its creators.

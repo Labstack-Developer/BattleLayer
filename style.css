@@ -22,3 +22,10 @@ body[data-display="overlay"] #wheelTitle{color:#fff}
 body[data-display="overlay"] button,body[data-display="overlay"] .button{border-color:#a9fff6;color:#fff;background:#000}
 body[data-display="overlay"] aside,body[data-display="overlay"] footer{background:#000;border-color:#a9fff6;color:#fff}
 body[data-display="overlay"] aside p,body[data-display="overlay"] aside small,body[data-display="overlay"] label{color:#e4fffc}
+
+body.desktop,html:has(body.desktop){background:transparent}
+body.desktop.click-through header,body.desktop.click-through aside,body.desktop.click-through footer,body.desktop.click-through #wheel{display:none!important}
+body[data-display="desktop"] #wheel{background:#000;border-color:#fff}
+body[data-display="desktop"] #wheelItems .wheel-slice{color:#fff}
+body[data-display="desktop"] #wheelItems .wheel-slice span{font-size:14px;font-weight:bold}
+body[data-display="desktop"] aside,body[data-display="desktop"] footer{background:#000e;border-color:#a9fff6}

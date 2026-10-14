@@ -1,0 +1,32 @@
+{
+  "name": "battlelayer",
+  "version": "0.2.0",
+  "description": "Transparent tabletop effects overlay",
+  "author": "Labstack-Developer",
+  "private": true,
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win portable --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "44.7.2",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "dev.labstack.battlelayer",
+    "productName": "BattleLayer",
+    "files": [
+      "index.html",
+      "app.js",
+      "style.css",
+      "desktop-ui.js",
+      "desktop/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "portable"
+    },
+    "artifactName": "BattleLayer-${version}-portable.${ext}"
+  }
+}

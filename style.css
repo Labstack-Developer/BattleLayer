@@ -10,3 +10,15 @@
 #wheelItems::after{content:'';position:absolute;left:94px;top:94px;width:112px;height:112px;border-radius:50%;background:#101522;border:1px solid #70e7d660;pointer-events:none}
 #wheelTitle{z-index:2;top:121px}
 #wheelBack{z-index:2;top:148px;left:117px;width:66px;padding:7px;font-size:11px}
+
+/* Projection leaves unused areas black and illuminates controls with clear outlines. */
+body[data-display="overlay"] #wheel{background:#000;border-color:#fff}
+body[data-display="overlay"] #wheelItems .wheel-slice{background:#000;color:#fff}
+body[data-display="overlay"] #wheelItems .wheel-slice:nth-child(even){background:#071d22}
+body[data-display="overlay"] #wheelItems .wheel-slice:hover,body[data-display="overlay"] #wheelItems .wheel-slice:focus-visible{background:#fff;color:#000}
+body[data-display="overlay"] #wheelItems .wheel-slice span{font-size:14px;font-weight:700}
+body[data-display="overlay"] #wheelItems::after{background:#000;border:2px solid #fff}
+body[data-display="overlay"] #wheelTitle{color:#fff}
+body[data-display="overlay"] button,body[data-display="overlay"] .button{border-color:#a9fff6;color:#fff;background:#000}
+body[data-display="overlay"] aside,body[data-display="overlay"] footer{background:#000;border-color:#a9fff6;color:#fff}
+body[data-display="overlay"] aside p,body[data-display="overlay"] aside small,body[data-display="overlay"] label{color:#e4fffc}

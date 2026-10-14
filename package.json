@@ -1,6 +1,6 @@
 {
   "name": "battlelayer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Transparent tabletop effects overlay",
   "author": "Labstack-Developer",
   "private": true,
@@ -22,7 +22,8 @@
       "style.css",
       "desktop-ui.js",
       "desktop/**/*",
-      "package.json"
+      "package.json",
+      "spell-fx.js"
     ],
     "win": {
       "target": "portable"

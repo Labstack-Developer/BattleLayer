@@ -40,7 +40,7 @@ Right-click the point where you want an effect to start. Choose a circular slice
 
 For a **cone, line or lightning**, move the cursor to aim the live preview and click to confirm. **Escape** cancels. Other spell effects appear at the original right-click point.
 
-Click an effect to select it. **Scroll** changes its size, **Shift + scroll** rotates it, and **Alt + drag** moves it. **Delete** removes the selected object. Fireball currently persists until removed.
+Click an effect to select it. **Scroll** changes its size, **Shift + scroll** rotates it, and **Alt + drag** moves it. **Delete** removes the selected object. Fireball and Lightning repeat by default. Untick **Repeat spell animations** to play them once and remove them; portals stay until removed.
 
 ## 2. Measure movement and range
 
@@ -121,7 +121,7 @@ Alignment currently assumes a square grid aligned with the map axes. It does not
 
 Project a grid square onto the board and adjust scale/zoom until it measures the physical size you want (typically **1 inch = 5 feet**). Two-point alignment calibrates a map's printed grid; a physical ruler calibrates the actual projected size. Keep the projector position, resolution and view fixed afterwards. Moving the overlay after calibration moves its alignment too.
 
-## Save your session
+## Animation quality\n\n**Balanced** detail and **30 FPS** are the laptop defaults. Choose Low to reduce particles or High for more detail; 60 FPS is available for smoother motion. Multiple spells share a particle budget, and offscreen spells are not drawn. Actual performance depends on the laptop model, display resolution and other active effects.\n\n## Save your session
 
 **Save scene** downloads a JSON file containing the imported map, effects, measurements, grid settings and view. **Open scene** restores it. An image open in Photos is external and is not embedded in the scene—reopen and position it separately.
 
